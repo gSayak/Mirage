@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Video Calling Live
+        </title>
+    </head>
+    <body>
+        <script>
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+          
+            script.addEventListener("load", function (event) {
+              const config = {
+                name: "Enter Your Name",
+                meetingId: "milkyway",
+                apiKey: "c528520f-11ee-4492-8b40-e223d7af4d2e",
+          
+                containerId: null,
+                //Mic and Video Settings
+                micEnabled: true,
+                webcamEnabled: true,
+                participantCanToggleSelfWebcam: true,
+                participantCanToggleSelfMic: true,
+
+
+                //Chat and Screen settings
+                chatEnabled: true,
+                screenShareEnabled: true,
+                raiseHandEnabled :true,
+                whiteboardEnabled: true,
+                    permissions: {
+                        drawOnWhiteboard: true,
+                        toggleWhiteboard: true,
+                    },
+
+                joinScreen: {
+                    visible: true,
+                    title: "Meeting URL",
+                    meetingUrl: "http://127.0.0.1:8000/",
+                },
+
+                //Layout
+
+                permissions: {
+                  pin: true,
+                  changeLayout: true,
+                  endMeeting: true,
+                  removeParticipant: true,
+                },
+                layout: {
+                          type: "SIDEBAR", 
+                          priority: "PIN",
+                          gridSize: 6,
+                        },
+
+
+                          
+              };
+          
+              const meeting = new VideoSDKMeeting();
+              meeting.init(config);
+            });
+          
+            script.src =
+              "https://sdk.videosdk.live/rtc-js-prebuilt/0.3.1/rtc-js-prebuilt.js";
+            document.getElementsByTagName("head")[0].appendChild(script);
+          </script>
+
+    </body>
+</html>
